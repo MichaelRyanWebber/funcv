@@ -1,6 +1,7 @@
 import cv2
 import numpy
 
+# this file contains a set of helper functions
 
 def to_float(src):
     dst = src.astype('float32')

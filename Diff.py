@@ -4,7 +4,8 @@ import Trails
 
 
 class Diff:
-
+    # this class uses the Trails class and Delay to create
+    # an inversion of Trails (difference from delay frame)
     def __init__(self):
         self.first = True
         self.delay = Delay.Delay()

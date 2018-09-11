@@ -2,12 +2,12 @@ import cv2
 
 
 class Trails:
-
+    # this class creates "trails" by combining the src image with a running average
     def __init__(self):
         self.first = True
         self.avg = ''
 
-    # assumes CV_32F mat
+    # assumes CV_32F mat as input and output
     def get_frame(self, src, gain, decay):
 
         if self.first:
