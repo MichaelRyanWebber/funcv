@@ -8,7 +8,6 @@ class Wrap109:
     def __init__(self):
         self.trails = Trails.Trails()
 
-    # assumes CV_32F mat
     def get_frame(self, src, threshold):
         temp = src.copy()
         temp = fof.thresh(temp, threshold)
@@ -16,6 +15,6 @@ class Wrap109:
 
         temp = self.trails.get_frame(temp, 9.0, 0.8)
 
-        temp = 2 * temp + .6 * src
-        return temp
+        temp = 2 * fof.to_float(temp) + fof.to_float(src) * .6
+        return fof.to_uint(temp)
 

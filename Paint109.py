@@ -32,19 +32,19 @@ class Paint109:
         # temp1 = tempc
         temp1 = self.diff2.get_frame(temp1)
         temp1 *= 5
-        return temp1
         temp1 = self.trails.get_frame(temp1, 9.0, .9)
 
         temp2 = cv2.bitwise_not(tempc)
         temp2 = self.wrap109.get_frame(temp2, 225)
         temp2 = cv2.bitwise_not(temp2)
 
-        dst = 0.8 * temp1 + 0.6 * temp2
+
+        dst = 0.8 * fof.to_float(temp1) + 0.6 * fof.to_float(temp2)
 
         # dst = cv2.cvtColor(dst.astype('float32'), cv2.COLOR_GRAY2BGR)
         # dst = cv2.cvtColor(dst, cv2.COLOR_GRAY2BGR)
 
 
-        return temp1
+        return fof.to_uint(dst)
 
 
