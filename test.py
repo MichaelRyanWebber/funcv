@@ -29,7 +29,7 @@ wrap = Wrap109.Wrap109()
 blacklines = Blacklines2.Blacklines2()
 blackboard = Blackboard3.Blackboard3()
 paint109 = Paint109.Paint109()
-# blackboard3
+# blackboard3 and paint109 are the main modes
 
 while(True):
     # Capture frame-by-frame
@@ -40,6 +40,7 @@ while(True):
 
     l = cv2.getTrackbarPos('low threshold', 'image')
     h = cv2.getTrackbarPos('high threshold', 'image')
+    gray = fof.blur(gray,1)
     edges = cv2.Canny(gray, l, h)
 
     # new = trails.get_frame(gray, 1.0, 0.8)

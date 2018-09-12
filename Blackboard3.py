@@ -12,7 +12,8 @@ class Blackboard3:
         self.alpha = Alpha.Alpha()
 
     def get_frame(self, src):
-        tempc = fof.blur(src, 15)
+        tempc = fof.to_float(src)
+        tempc = fof.blur(tempc, 15)
         tempd = cv2.cvtColor(tempc, cv2.COLOR_BGR2GRAY)
         tempd = self.diff.get_frame(tempd)
         tempd = self.blacklines2.get_frame(tempd, 60)

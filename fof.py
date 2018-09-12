@@ -18,6 +18,7 @@ def thresh(src, thresh_val):
 
 # Make a table based on the scale and threshold values
 def squash(src, scale, thresh_val):
+    #tab = numpy.empty([256, 3])
     tab = numpy.empty(256)
 
     for i in range(0, 255):
@@ -25,8 +26,12 @@ def squash(src, scale, thresh_val):
         y = (numpy.tanh(x) + 1) / 2.0
         z = y * 255
         tab[i] = z
+        # tab[i, 0] = z
+        # tab[i, 1] = z
+        # tab[i, 2] = z
 
-    return cv2.LUT(src, tab)
+    # return to_float(cv2.LUT(to_uint(src), tab))
+    return to_uint(cv2.LUT(src, tab))
 
 
 def contour(src, largeness, simplicity, thickness, color):
